@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Button, ButtonGroup, Glyphicon } from 'react-bootstrap';
+import { Navbar, Button, ButtonGroup, Glyphicon, Grid, Row, Col } from 'react-bootstrap';
 import classNames from 'classnames';
 
 class BrilliantStrokesComponent extends Component {
@@ -46,29 +46,33 @@ class BrilliantStrokesComponent extends Component {
   }
 
   render() {
-    var britishButtonClass = classNames("brilliant-stroke-button", {
-      "brilliant-stroke-available": this.state.british,
-      "brilliant-stroke-unavailable": !this.state.british
+    var baseClassName = "brilliant-stroke-button";
+    var classNameAvailable = "brilliant-stroke-available";
+    var classNameUnavailable = "brilliant-stroke-unavailable";
+
+    var britishButtonClass = classNames(baseClassName, {
+      classNameAvailable: this.state.british,
+      classNameUnavailable: !this.state.british
     });
 
-    var patriotButtonClass = classNames("brilliant-stroke-button", {
-      "brilliant-stroke-available": this.state.patriot,
-      "brilliant-stroke-unavailable": !this.state.patriot
+    var patriotButtonClass = classNames(baseClassName, {
+      classNameAvailable: this.state.patriot,
+      classNameUnavailable: !this.state.patriot
     });
 
-    var frenchButtonClass = classNames("brilliant-stroke-button", {
-      "brilliant-stroke-available": this.state.french,
-      "brilliant-stroke-unavailable": !this.state.french
+    var frenchButtonClass = classNames(baseClassName, {
+      classNameAvailable: this.state.french,
+      classNameUnavailable: !this.state.french
     });
 
-    var indianButtonClass = classNames("brilliant-stroke-button", {
-      "brilliant-stroke-available": this.state.indian,
-      "brilliant-stroke-unavailable": !this.state.indian
+    var indianButtonClass = classNames(baseClassName, {
+      classNameAvailable: this.state.indian,
+      classNameUnavailable: !this.state.indian
     });
 
-    var toaButtonClass = classNames("brilliant-stroke-button", {
-      "brilliant-stroke-available": this.state.toa,
-      "brilliant-stroke-unavailable": !this.state.toa
+    var toaButtonClass = classNames(baseClassName, {
+      classNameAvailable: this.state.toa,
+      classNameUnavailable: !this.state.toa
     });
 
     var glyphiconAvailable = "glyphicon glyphicon-ok-sign";
@@ -76,24 +80,56 @@ class BrilliantStrokesComponent extends Component {
 
     return (
       <Navbar fixedBottom className="resources-bar">
+        <Grid>
+          <Row>
+            <Col md={2} mdOffset={1}>
+              <Button block href="#" className={britishButtonClass} onClick={this.toggleBritishAvailable.bind(this)}>
+                <Glyphicon glyph={this.state.british ? glyphiconAvailable : glyphiconUnavailable} /> British BS
+              </Button>
+            </Col>
+            <Col md={2}>
+              <Button block href="#" className={patriotButtonClass} onClick={this.togglePatriotAvailable.bind(this)}>
+                <Glyphicon glyph={this.state.patriot ? glyphiconAvailable : glyphiconUnavailable} /> Patriot BS
+              </Button>
+            </Col>
+            <Col md={2}>
+              <Button block href="#" className={frenchButtonClass} onClick={this.toggleFrenchAvailable.bind(this)}>
+                <Glyphicon glyph={this.state.french ? glyphiconAvailable : glyphiconUnavailable} /> French BS
+              </Button>
+            </Col>
+            <Col md={2}>
+              <Button block href="#" className={indianButtonClass} onClick={this.toggleIndianAvailable.bind(this)}>
+                <Glyphicon glyph={this.state.indian ? glyphiconAvailable : glyphiconUnavailable} /> Indian BS
+              </Button>
+            </Col>
+            <Col md={2}>
+              <Button block href="#" className={toaButtonClass} onClick={this.toggleToAAvailable.bind(this)}>
+                <Glyphicon glyph={this.state.toa ? glyphiconAvailable : glyphiconUnavailable} /> French ToA
+              </Button>
+            </Col>
+          </Row>
+        </Grid>
+      </Navbar>
+
+      /*<Navbar fixedBottom className="resources-bar">
         <ButtonGroup justified>
           <Button href="#" className={britishButtonClass} onClick={this.toggleBritishAvailable.bind(this)}>
-            <Glyphicon glyph={this.state.british ? glyphiconAvailable : glyphiconUnavailable} /> British Brilliant Stroke
+            <Glyphicon glyph={this.state.british ? glyphiconAvailable : glyphiconUnavailable} /> British BS
           </Button>
           <Button href="#" className={patriotButtonClass} onClick={this.togglePatriotAvailable.bind(this)}>
-            <Glyphicon glyph={this.state.patriot ? glyphiconAvailable : glyphiconUnavailable} /> Patriot Brilliant Stroke
+            <Glyphicon glyph={this.state.patriot ? glyphiconAvailable : glyphiconUnavailable} /> Patriot BS
           </Button>
           <Button href="#" className={frenchButtonClass} onClick={this.toggleFrenchAvailable.bind(this)}>
-            <Glyphicon glyph={this.state.french ? glyphiconAvailable : glyphiconUnavailable} /> French Brilliant Stroke
+            <Glyphicon glyph={this.state.french ? glyphiconAvailable : glyphiconUnavailable} /> French BS
           </Button>
           <Button href="#" className={indianButtonClass} onClick={this.toggleIndianAvailable.bind(this)}>
-            <Glyphicon glyph={this.state.indian ? glyphiconAvailable : glyphiconUnavailable} /> Indian Brilliant Stroke
+            <Glyphicon glyph={this.state.indian ? glyphiconAvailable : glyphiconUnavailable} /> Indian BS
           </Button>
           <Button href="#" className={toaButtonClass} onClick={this.toggleToAAvailable.bind(this)}>
             <Glyphicon glyph={this.state.toa ? glyphiconAvailable : glyphiconUnavailable} /> French ToA
           </Button>
         </ButtonGroup>
-      </Navbar>
+      </Navbar>*/
     );
   }
 }
