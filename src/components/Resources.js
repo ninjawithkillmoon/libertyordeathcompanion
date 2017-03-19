@@ -6,10 +6,10 @@ class ResourcesComponent extends Component {
   constructor() {
     super();
     this.state = {
-      british: 0,
-      patriot: 0,
-      french: 0,
-      indian: 0
+      british: 10,
+      patriot: 4,
+      french: 11,
+      indian: 2
     }
   }
 
