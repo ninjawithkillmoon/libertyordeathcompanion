@@ -4,7 +4,6 @@ import Header from './components/Header';
 import Resources from './components/Resources';
 import Sidebar from './components/Sidebar';
 import BrilliantStrokes from './components/BrilliantStrokes';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {

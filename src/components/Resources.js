@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, NavItem, Button, Row, Col, Grid } from 'react-bootstrap';
+import { Navbar, Button, Row, Col, Grid } from 'react-bootstrap';
 
 class ResourcesComponent extends Component {
 
