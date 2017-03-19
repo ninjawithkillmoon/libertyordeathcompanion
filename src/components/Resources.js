@@ -6,15 +6,20 @@ class ResourcesComponent extends Component {
   constructor() {
     super();
     this.state = {
-      british: 10,
-      patriot: 4,
-      french: 11,
-      indian: 2
+      british: -1,
+      patriot: -1,
+      french: -1,
+      indian: -1
     }
   }
 
-  handleSelect(selectedKey) {
-    alert('selected ' + selectedKey);
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      british: nextProps.game.BritishResources,
+      patriot: nextProps.game.PatriotResources,
+      french: nextProps.game.FrenchResources,
+      indian: nextProps.game.IndianResources
+    });
   }
 
   render() {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
+import GameActions from '../actions/GameActions';
+import { Navbar, Button } from 'react-bootstrap';
 
 class HeaderComponent extends Component {
 
@@ -10,6 +11,10 @@ class HeaderComponent extends Component {
     }
   }
 
+  newGame() {
+    GameActions.newGame();
+  }
+
   render() {
     return (
       <Navbar fixedTop>
@@ -18,9 +23,7 @@ class HeaderComponent extends Component {
             <span>Liberty or Death</span>
           </Navbar.Brand>
         </Navbar.Header>
-        <Nav>
-          
-        </Nav>
+        <Button bsStyle="success" className="nav-button" onClick={this.newGame.bind(this)}>New Game</Button>
       </Navbar>
     );
   }

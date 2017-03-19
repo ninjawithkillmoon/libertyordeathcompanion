@@ -13,12 +13,22 @@ class BrilliantStrokes extends Component {
   constructor() {
     super();
     this.state = {
-      british: true,
+      british: false,
       patriot: false,
-      french: true,
+      french: false,
       indian: false,
-      toa: true
+      toa: false
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      british: nextProps.game.BritishBrilliantStrokeAvailable,
+      patriot: nextProps.game.PatriotBrilliantStrokeAvailable,
+      french: nextProps.game.FrenchBrilliantStrokeAvailable,
+      indian: nextProps.game.IndianBrilliantStrokeAvailable,
+      toa: nextProps.game.FrenchTreatyOfAllianceAvailable
+    });
   }
 
   toggleAvailable(label) {
