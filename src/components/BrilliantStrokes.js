@@ -55,22 +55,22 @@ class BrilliantStrokes extends Component {
 
   render() {
     return (
-      <Navbar fixedBottom className="resources-bar">
+      <Navbar fixedBottom className="brilliant-strokes-bar">
         <Grid>
           <Row>
-            <Col md={2} mdOffset={1}>
+            <Col md={2} mdOffset={1} className="british">
               <BrilliantStrokeButton label={britishLabel} available={this.state.british} onToggleAvailable={this.toggleAvailable.bind(this)} />
             </Col>
-            <Col md={2}>
+            <Col md={2} className="patriot">
               <BrilliantStrokeButton label={patriotLabel} available={this.state.patriot} onToggleAvailable={this.toggleAvailable.bind(this)} />
             </Col>
-            <Col md={2}>
+            <Col md={2} className="french">
               <BrilliantStrokeButton label={frenchLabel} available={this.state.french} onToggleAvailable={this.toggleAvailable.bind(this)} />
             </Col>
-            <Col md={2}>
+            <Col md={2} className="indian">
               <BrilliantStrokeButton label={indianLabel} available={this.state.indian} onToggleAvailable={this.toggleAvailable.bind(this)} />
             </Col>
-            <Col md={2}>
+            <Col md={2} className="french">
               <BrilliantStrokeButton label={toaLabel} available={this.state.toa} onToggleAvailable={this.toggleAvailable.bind(this)} />
             </Col>
           </Row>

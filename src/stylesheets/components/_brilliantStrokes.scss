@@ -1,3 +1,32 @@
 .brilliant-stroke-button {
 	margin-top: 8px;
+	font-weight: bold;
+}
+
+.british {
+	.brilliant-stroke-button {
+		@include british-button;
+	}
+}
+
+.patriot {
+	.brilliant-stroke-button {
+		@include patriot-button;
+	}
+}
+
+.french {
+	.brilliant-stroke-button {
+		@include french-button;
+	}
+}
+
+.indian {
+	.brilliant-stroke-button {
+		@include indian-button;
+	}
+}
+
+.brilliant-stroke-unavailable {
+	opacity: .4;
 }

@@ -23,16 +23,16 @@ class ResourcesComponent extends Component {
         <Grid>
           <Row>
             <Col md={3}>
-              <Button block className="resources-button">British Resources: {this.state.british}</Button>
+              <Button block className="resources-button british">British Resources: {this.state.british}</Button>
             </Col>
             <Col md={3}>
-              <Button block className="resources-button">Patriot Resources: {this.state.patriot}</Button>
+              <Button block className="resources-button patriot">Patriot Resources: {this.state.patriot}</Button>
             </Col>
             <Col md={3}>
-              <Button block className="resources-button">French Resources: {this.state.french}</Button>
+              <Button block className="resources-button french">French Resources: {this.state.french}</Button>
             </Col>
             <Col md={3}>
-              <Button block className="resources-button">Indian Resources: {this.state.indian}</Button>
+              <Button block className="resources-button indian">Indian Resources: {this.state.indian}</Button>
             </Col>
           </Row>
         </Grid>

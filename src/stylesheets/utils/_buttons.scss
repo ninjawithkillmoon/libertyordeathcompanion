@@ -1,0 +1,19 @@
+@mixin british-button() {
+  color: $britishButtonTextColour;
+	background-color: $britishButtonTextBackgroundColour;
+}
+
+@mixin patriot-button() {
+  color: $patriotButtonTextColour;
+	background-color: $patriotButtonTextBackgroundColour;
+}
+
+@mixin french-button() {
+  color: $frenchButtonTextColour;
+	background-color: $frenchButtonTextBackgroundColour;
+}
+
+@mixin indian-button() {
+  color: $indianButtonTextColour;
+	background-color: $indianButtonTextBackgroundColour;
+}
