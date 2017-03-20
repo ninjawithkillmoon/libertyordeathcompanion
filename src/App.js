@@ -3,10 +3,10 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import Header from './components/Header';
 import Resources from './components/Resources';
 import Sidebar from './components/Sidebar';
+import Space from './components/Space';
 import BrilliantStrokes from './components/BrilliantStrokes';
 import './App.css';
 import GameStore from './stores/GameStore';
-import PatriotRegularPiece from './components/shapes/PatriotRegularPiece';
 
 class App extends Component {
   constructor() {
@@ -44,7 +44,9 @@ class App extends Component {
               <Sidebar game={this.state.game}></Sidebar>
             </Col>
             <Col xs={12} md={9}>
-              
+              <div className="space-container">
+                <Space></Space>
+              </div>
             </Col>
           </Row>
         </Grid>

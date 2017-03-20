@@ -19,6 +19,13 @@ export default {
           message: message
         });
       });
+  },
+
+  changeSpace: (space) => {
+    AppDispatcher.dispatch({
+      actionType: GameConstants.CHANGE_SPACE,
+      space: space
+    });
   }
 
 }

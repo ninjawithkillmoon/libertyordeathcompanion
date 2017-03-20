@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-class PatriotRegularPiece extends Component {
+class PatriotContinentalPiece extends Component {
 	render() {
 		return (
-			<div className="patriotRegularPiece">
+			<div className="patriotContinentalPiece">
 			  <div className="scene">
 			    <div className="shape cuboid-1 cub-1">
 			      <div className="face ft"></div>
@@ -19,4 +19,4 @@ class PatriotRegularPiece extends Component {
 	}
 }
 
-export default PatriotRegularPiece;
+export default PatriotContinentalPiece;
