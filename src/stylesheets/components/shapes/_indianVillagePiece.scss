@@ -1,0 +1,12 @@
+$scale: 0.2;
+
+.indianVillagePiece {
+  width: 120px * $scale;
+  height: 120px * $scale;
+  background: $indianButtonTextBackgroundColour;
+  -moz-border-radius: 60px * $scale;
+  -webkit-border-radius: 60px * $scale;
+  border-radius: 60px * $scale;
+  float: left;
+  margin: 10px * $scale;
+}

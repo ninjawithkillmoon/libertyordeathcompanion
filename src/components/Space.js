@@ -4,8 +4,13 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import SpaceUtils from '../utils/SpaceUtils';
 import PatriotContinentalPiece from './shapes/PatriotContinentalPiece';
 import BritishRegularPiece from './shapes/BritishRegularPiece';
+import BritishFortPiece from './shapes/BritishFortPiece';
+import PatriotFortPiece from './shapes/PatriotFortPiece';
 import PatriotMilitiaPiece from './shapes/PatriotMilitiaPiece';
 import IndianWarPartyPiece from './shapes/IndianWarPartyPiece';
+import IndianVillagePiece from './shapes/IndianVillagePiece';
+import BritishToryPiece from './shapes/BritishToryPiece';
+import FrenchRegularPiece from './shapes/FrenchRegularPiece';
 
 class Space extends Component {
 
@@ -50,6 +55,21 @@ class Space extends Component {
           britishRegulars.push(<BritishRegularPiece key={i} />);
       }
 
+      let britishForts = [];
+      for (var i = 0; i < this.state.space.britishForts + 2; i++) {
+          britishForts.push(<BritishFortPiece key={i} />);
+      }
+
+      let patriotForts = [];
+      for (var i = 0; i < this.state.space.patriotForts + 1; i++) {
+          patriotForts.push(<PatriotFortPiece key={i} />);
+      }
+
+      let frenchRegulars = [];
+      for (var i = 0; i < this.state.space.frenchRegulars + 4; i++) {
+          frenchRegulars.push(<FrenchRegularPiece key={i} />);
+      }
+
       let patriotMilitiaActive = [];
       for (var i = 0; i < this.state.space.patriotMilitiaActive + 4; i++) {
           patriotMilitiaActive.push(<PatriotMilitiaPiece key={i} active />);
@@ -70,6 +90,16 @@ class Space extends Component {
           indianWarPartiesUnderground.push(<IndianWarPartyPiece key={i} />);
       }
 
+      let indianVillages = [];
+      for (var i = 0; i < this.state.space.indianVillages + 3; i++) {
+          indianVillages.push(<IndianVillagePiece key={i} />);
+      }
+
+      let britishTories = [];
+      for (var i = 0; i < this.state.space.britishTories + 2; i++) {
+          britishTories.push(<BritishToryPiece key={i} />);
+      }
+
       return (
         <div>
           <Row>
@@ -79,19 +109,19 @@ class Space extends Component {
           </Row>
           <Row className="british">
             <Col md={4}>
-              Forts: {this.state.space.britishForts}
+              {britishForts} ({this.state.space.britishForts})
             </Col>
             <Col md={4}>
               {britishRegulars} ({this.state.space.britishRegulars})
             </Col>
             <Col md={4}>
-              Tories: {this.state.space.britishTories}
+              {britishTories} ({this.state.space.britishTories})
             </Col>
           </Row>
 
           <Row className="patriot">
             <Col md={4}>
-              Forts: {this.state.space.patriotForts}
+              {patriotForts} ({this.state.space.patriotForts})
             </Col>
             <Col md={4}>
               {continentals} ({this.state.space.patriotContinentals})
@@ -103,13 +133,13 @@ class Space extends Component {
 
           <Row className="french">
             <Col md={12}>
-              Regulars: {this.state.space.frenchRegulars}
+              {frenchRegulars} ({this.state.space.frenchRegulars})
             </Col>
           </Row>
 
           <Row className="indian">
             <Col md={8}>
-              Villages: {this.state.space.indianVillages}
+              {indianVillages} ({this.state.space.indianVillages})
             </Col>
             <Col md={4}>
               {indianWarPartiesActive} {indianWarPartiesUnderground} ({this.state.space.indianWarPartiesActive + this.state.space.indianWarPartiesUnderground})
