@@ -12,6 +12,8 @@ class SidebarSpaceButton extends Component {
 
 	changeSpace() {
 		GameActions.changeSpace(this.props.space);
+
+		window.scrollTo(0, 0);
 	}
 
 	render() {

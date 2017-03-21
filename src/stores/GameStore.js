@@ -20,6 +20,7 @@ class GameStoreClass extends EventEmitter {
 
   emitGameChange() {
     this.emit(CHANGE_GAME_EVENT);
+    this.emit(CHANGE_SPACE_EVENT);
   }
 
   addGameChangeListener(callback) {
@@ -62,6 +63,7 @@ GameStore.dispatchToken = AppDispatcher.register(action => {
   switch(action.actionType) {
     case GameConstants.RECEIVE_GAME:
       setGame(action.game);
+      setSpace(null);
       // We need to call emitGameChange so the event listener knows that a change has been made
       GameStore.emitGameChange();
       break;

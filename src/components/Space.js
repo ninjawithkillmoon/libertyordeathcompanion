@@ -46,58 +46,77 @@ class Space extends Component {
     }
     else {
       let continentals = [];
-      for (var i = 0; i < this.state.space.patriotContinentals + 3; i++) {
+      for (let i = 0; i < this.state.space.patriotContinentals; i++) {
           continentals.push(<PatriotContinentalPiece key={i} />);
       }
 
       let britishRegulars = [];
-      for (var i = 0; i < this.state.space.britishRegulars + 16; i++) {
+      for (let i = 0; i < this.state.space.britishRegulars; i++) {
           britishRegulars.push(<BritishRegularPiece key={i} />);
       }
 
       let britishForts = [];
-      for (var i = 0; i < this.state.space.britishForts + 2; i++) {
+      for (let i = 0; i < this.state.space.britishForts; i++) {
           britishForts.push(<BritishFortPiece key={i} />);
       }
 
       let patriotForts = [];
-      for (var i = 0; i < this.state.space.patriotForts + 1; i++) {
+      for (let i = 0; i < this.state.space.patriotForts; i++) {
           patriotForts.push(<PatriotFortPiece key={i} />);
       }
 
       let frenchRegulars = [];
-      for (var i = 0; i < this.state.space.frenchRegulars + 4; i++) {
+      for (let i = 0; i < this.state.space.frenchRegulars; i++) {
           frenchRegulars.push(<FrenchRegularPiece key={i} />);
       }
 
       let patriotMilitiaActive = [];
-      for (var i = 0; i < this.state.space.patriotMilitiaActive + 4; i++) {
+      for (let i = 0; i < this.state.space.patriotMilitiaActive; i++) {
           patriotMilitiaActive.push(<PatriotMilitiaPiece key={i} active />);
       }
 
       let patriotMilitiaUnderground = [];
-      for (var i = 0; i < this.state.space.patriotMilitiaUnderground + 11; i++) {
+      for (let i = 0; i < this.state.space.patriotMilitiaUnderground; i++) {
           patriotMilitiaUnderground.push(<PatriotMilitiaPiece key={i} />);
       }
 
       let indianWarPartiesActive = [];
-      for (var i = 0; i < this.state.space.indianWarPartiesActive + 2; i++) {
+      for (let i = 0; i < this.state.space.indianWarPartiesActive; i++) {
           indianWarPartiesActive.push(<IndianWarPartyPiece key={i} active />);
       }
 
       let indianWarPartiesUnderground = [];
-      for (var i = 0; i < this.state.space.indianWarPartiesUnderground + 5; i++) {
+      for (let i = 0; i < this.state.space.indianWarPartiesUnderground; i++) {
           indianWarPartiesUnderground.push(<IndianWarPartyPiece key={i} />);
       }
 
       let indianVillages = [];
-      for (var i = 0; i < this.state.space.indianVillages + 3; i++) {
+      for (let i = 0; i < this.state.space.indianVillages; i++) {
           indianVillages.push(<IndianVillagePiece key={i} />);
       }
 
       let britishTories = [];
-      for (var i = 0; i < this.state.space.britishTories + 2; i++) {
+      for (let i = 0; i < this.state.space.britishTories; i++) {
           britishTories.push(<BritishToryPiece key={i} />);
+      }
+
+      let supportText = "Neutral";
+      let supportClass = "support-neutral";
+      if (this.state.space.supportLevel == -2) {
+        supportText = "Active Opposition";
+        supportClass = "support-opposition";
+      }
+      else if (this.state.space.supportLevel == -1) {
+        supportText = "Passive Opposition";
+        supportClass = "support-opposition";
+      }
+      else if (this.state.space.supportLevel == 1) {
+        supportText = "Passive Support";
+        supportClass = "support-support";
+      }
+      else if (this.state.space.supportLevel == 2) {
+        supportText = "Active Support";
+        supportClass = "support-support";
       }
 
       return (
@@ -107,44 +126,44 @@ class Space extends Component {
               <h2>{this.state.space.name}</h2>
             </Col>
           </Row>
-          <Row className="british">
-            <Col md={4}>
-              {britishForts} ({this.state.space.britishForts})
-            </Col>
-            <Col md={4}>
-              {britishRegulars} ({this.state.space.britishRegulars})
-            </Col>
-            <Col md={4}>
-              {britishTories} ({this.state.space.britishTories})
-            </Col>
-          </Row>
 
-          <Row className="patriot">
-            <Col md={4}>
-              {patriotForts} ({this.state.space.patriotForts})
-            </Col>
-            <Col md={4}>
-              {continentals} ({this.state.space.patriotContinentals})
-            </Col>
-            <Col md={4}>
-              {patriotMilitiaActive} {patriotMilitiaUnderground} ({this.state.space.patriotMilitiaActive + this.state.space.patriotMilitiaUnderground})
-            </Col>
-          </Row>
-
-          <Row className="french">
+          <Row>
             <Col md={12}>
-              {frenchRegulars} ({this.state.space.frenchRegulars})
+              <h4 className={supportClass}>Support Level: {supportText}</h4>
             </Col>
           </Row>
 
-          <Row className="indian">
-            <Col md={8}>
-              {indianVillages} ({this.state.space.indianVillages})
-            </Col>
-            <Col md={4}>
-              {indianWarPartiesActive} {indianWarPartiesUnderground} ({this.state.space.indianWarPartiesActive + this.state.space.indianWarPartiesUnderground})
-            </Col>
-          </Row>
+          {SpaceUtils.spaceHasBritish && 
+            <Row className="british">
+              <Col md={12}>
+                {britishForts} {britishRegulars} {britishTories}
+              </Col>
+            </Row>
+          }
+
+          {SpaceUtils.spaceHasPatriot && 
+            <Row className="patriot">
+              <Col md={12}>
+                {patriotForts} {continentals} {patriotMilitiaActive} {patriotMilitiaUnderground}
+              </Col>
+            </Row>
+          }
+
+          {SpaceUtils.spaceHasFrench && 
+            <Row className="french">
+              <Col md={12}>
+                {frenchRegulars}
+              </Col>
+            </Row>
+          }
+
+          {SpaceUtils.spaceHasIndian && 
+            <Row className="indian">
+              <Col md={12}>
+                {indianVillages} {indianWarPartiesActive} {indianWarPartiesUnderground}
+              </Col>
+            </Row>
+          }
         </div>
       );
     }
