@@ -15,6 +15,14 @@ class HeaderComponent extends Component {
     GameActions.newGame();
   }
 
+  loadGame() {
+
+  }
+
+  saveGame() {
+
+  }
+
   render() {
     return (
       <Navbar fixedTop>
@@ -23,7 +31,12 @@ class HeaderComponent extends Component {
             <span>Liberty or Death</span>
           </Navbar.Brand>
         </Navbar.Header>
-        <Button bsStyle="success" className="nav-button" onClick={this.newGame.bind(this)}>New Game</Button>
+        <div className="header-buttons">
+          <Button bsStyle="primary" className="nav-button" onClick={this.newGame.bind(this)}>New Game</Button>
+          <Button bsStyle="info" className="nav-button" onClick={this.loadGame.bind(this)}>Load Game</Button>
+          <Button bsStyle="success" className="nav-button" onClick={this.saveGame.bind(this)}>Save Game</Button>
+        </div>
+        
       </Navbar>
     );
   }
